@@ -3,13 +3,15 @@
 t = int(input())
 for i in range(t):
     h,w,n = map(int,input().split())
-    floor = str(n%h)
+    floor = n%h
     room_num = n//h+1
-    if room_num < 10:
-        room_num = '0'+ str(room_num)
-    else:
-        room_num = str(room_num)
-    print(floor+room_num)
+    if n%h == 0:
+        room_num = n//h
+        floor = h
+
+    print(f'{floor*100+room_num}')
+
+
 
 
 
