@@ -1,25 +1,25 @@
 # 골드바흐의 추측
+
+# 소수 판별하는 코드 함수로 따로 빼기
+def is_prime(n):
+    if n<2:
+        return False
+    for i in range(2,int(n**0.5) + 1):
+        if n%i == 0:
+            return False
+    return True
+
 t = int(input())
-
-for i in range(t):
-    num = int(input())
-    sosu_lst = []
-    for a in range(3,num+1):
-        for b in range(2,a+1):
-            if a % b == 0:
-                break
-            elif b == a-1:
-                sosu_lst.append(a)
-
-    print(sosu_lst)
-
-    ans_lst = []
-    for a in range(len(sosu_lst)//2):
-        for b in range(len(sosu_lst)-(a+1)):
-            if (sosu_lst[a] + sosu_lst[b]) == num:
-                print(sosu_lst[a],sosu_lst[b])
-                ans_lst.append((sosu_lst[a],sosu_lst[b]))
-
-    print(ans_lst)
+for _ in range(t):
+    n = int(input())
+    half_n = n//2
+    a = half_n
+    b = half_n
+    for i in range(half_n, 1, -1):
+        if is_prime(i) and is_prime(n - i):
+            a = i
+            b = n - i
+            break
+    print(a, b)
 
 
