@@ -1,10 +1,12 @@
-# 수 정렬하기
+# 수 정렬하기2
 import sys
-input = sys.stdin.readline()
+n = int(sys.stdin.readline())
+lst = []
 
-n = int(input)
-nums = [int(input) for _ in range(n)]
-nums.sort()
+for i in range(n):
+    lst.append(int(sys.stdin.readline()))
 
-for i in nums:
+lst.sort()
+
+for i in lst:
     print(i)
